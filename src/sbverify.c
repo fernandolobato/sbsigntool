@@ -316,15 +316,15 @@ int main(int argc, char **argv)
 	idcbio = BIO_new(BIO_s_mem());
 
 	printf("IDC_get start\n");
-	// idc = IDC_get(p7, idcbio);
-	// if (!idc)
-		// goto out;
+	idc = IDC_get(p7, idcbio);
+	if (!idc)
+		goto out;
 	printf("IDC_get end\n");
 
 	printf("IDC_check_hash start\n");
-	// rc = IDC_check_hash(idc, image);
-	// if (rc)
-	// 	goto out;
+	rc = IDC_check_hash(idc, image);
+	if (rc)
+		goto out;
 	printf("IDC_check_hash end\n");
 
 	flags = PKCS7_BINARY;
@@ -336,7 +336,7 @@ int main(int argc, char **argv)
 	p7->d.sign->contents->d.ptr=0;
 
 	X509_STORE_set_verify_cb_func(certs, x509_verify_cb);
-	rc = PKCS7_verify(p7, NULL, certs, NULL, NULL, flags);
+	rc = PKCS7_verify(p7, NULL, certs, idcbio, NULL, flags);
 	if (!rc) {
 		printf("PKCS7 verification failed\n");
 		ERR_print_errors_fp(stderr);
