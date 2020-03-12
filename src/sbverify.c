@@ -318,7 +318,7 @@ int main(int argc, char **argv)
 	printf("IDC_get start\n");
 	// idc = IDC_get(p7, idcbio);
 	// if (!idc)
-		goto out;
+		// goto out;
 	printf("IDC_get end\n");
 
 	printf("IDC_check_hash start\n");
