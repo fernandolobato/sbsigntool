@@ -156,7 +156,7 @@ static void print_certificate_store_certs(X509_STORE *certs)
 
 		printf(" - subject: %s\n", subject_name);
 		printf("   issuer:  %s\n", issuer_name);
-		printf("Why though?")
+		printf("Why though?");
 	}
 }
 
