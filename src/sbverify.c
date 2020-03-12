@@ -56,7 +56,7 @@
 #include <openssl/x509v3.h>
 
 #ifdef XDEBUG
-#  define  XDEBUG(x) if(verbose) { fprintf(x) }
+#  define  XDEBUG(x) if(verbose) { fprintf(x); }
 #endif
 
 static const char *toolname = "sbverify";
