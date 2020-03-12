@@ -55,9 +55,7 @@
 #include <openssl/pem.h>
 #include <openssl/x509v3.h>
 
-#ifdef XDEBUG
-#  define  XDEBUG(x) if(verbose) { fprintf(x); }
-#endif
+#define  XDEBUG(x) if(verbose) { fprintf(x); }
 
 static const char *toolname = "sbverify";
 static const int cert_name_len = 160;
