@@ -156,7 +156,6 @@ static void print_certificate_store_certs(X509_STORE *certs)
 
 		printf(" - subject: %s\n", subject_name);
 		printf("   issuer:  %s\n", issuer_name);
-		printf("Why though?");
 	}
 }
 
@@ -315,9 +314,10 @@ int main(int argc, char **argv)
 	}
 	BIO_METHOD *s_mem = BIO_s_mem();
 	printf("-A\n");
+	XDEBUG("BIO_new start")
 	idcbio = BIO_new(s_mem);
-	
-	printf("A");
+	XDEBUG("BIO_new end")
+
 	XDEBUG("IDC_get start")
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
