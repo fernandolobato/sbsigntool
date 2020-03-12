@@ -55,7 +55,7 @@
 #include <openssl/pem.h>
 #include <openssl/x509v3.h>
 
-#define  XDEBUG(x) if(verbose) { fprintf(x); }
+#define  XDEBUG(x) if(verbose) { printf(x); }
 
 static const char *toolname = "sbverify";
 static const int cert_name_len = 160;
@@ -316,7 +316,7 @@ int main(int argc, char **argv)
 	idcbio = BIO_new(BIO_s_mem());
 	
 
-	XDEBUG("IDC_get start");
+	XDEBUG("IDC_get start")
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
 		goto out;
