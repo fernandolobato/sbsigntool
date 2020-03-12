@@ -316,6 +316,9 @@ int main(int argc, char **argv)
 	if (!idc)
 		goto out;
 
+	if (verbose) {
+		printf("Verifying Hash")
+	}
 	rc = IDC_check_hash(idc, image);
 	if (rc)
 		goto out;
