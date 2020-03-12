@@ -242,6 +242,7 @@ struct idc *IDC_get(PKCS7 *p7, BIO *bio)
 	str = p7->d.sign->contents->d.other->value.asn1_string;
 	printf("str = %s\n", str);
 	idcbuf = buf = ASN1_STRING_data(str);
+	printf("idcbuf = %s\n", idcbuf);
 	idc = d2i_IDC(NULL, &buf, ASN1_STRING_length(str));
 	printf("Conversions\n");
 	/* If we were passed a BIO, write the idc data, minus type and length,
