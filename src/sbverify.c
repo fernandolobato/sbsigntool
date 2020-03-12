@@ -317,7 +317,7 @@ int main(int argc, char **argv)
 		goto out;
 
 	if (verbose) {
-		printf("Verifying Hash")
+		printf("Verifying Hash");
 	}
 	rc = IDC_check_hash(idc, image);
 	if (rc)
