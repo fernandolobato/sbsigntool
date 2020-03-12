@@ -313,22 +313,22 @@ int main(int argc, char **argv)
 		print_certificate_store_certs(certs);
 	}
 	BIO_METHOD *s_mem = BIO_s_mem();
-	printf("-A\n");
-	XDEBUG("BIO_new start")
+	
+	printf("BIO_new start\n")
 	idcbio = BIO_new(s_mem);
-	XDEBUG("BIO_new end")
+	printf("BIO_new end\n")
 
-	XDEBUG("IDC_get start")
+	printf("IDC_get start\n")
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
 		goto out;
-	XDEBUG("IDC_get end")
+	printf("IDC_get end\n")
 
-	XDEBUG("IDC_check_hash start")
+	printf("IDC_check_hash start\n")
 	rc = IDC_check_hash(idc, image);
 	if (rc)
 		goto out;
-	XDEBUG("IDC_check_hash end")
+	printf("IDC_check_hash end\n")
 
 	flags = PKCS7_BINARY;
 	if (!verify)
