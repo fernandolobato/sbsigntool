@@ -267,7 +267,7 @@ struct idc *IDC_get(PKCS7 *p7, BIO *bio)
 		BIO_write(bio, idcbuf, idclen);
 	}
 	printf("%p\n", idc);
-	return idc;
+	return 1;
 }
 
 int IDC_check_hash(struct idc *idc, struct image *image)
