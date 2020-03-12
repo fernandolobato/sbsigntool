@@ -312,21 +312,21 @@ int main(int argc, char **argv)
 		print_signature_info(p7);
 		print_certificate_store_certs(certs);
 	}
-
+	printf("-A");
 	idcbio = BIO_new(BIO_s_mem());
 	
-
+	printf("A");
 	XDEBUG("IDC_get start")
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
 		goto out;
-	XDEBUG("IDC_get end");
+	XDEBUG("IDC_get end")
 
-	XDEBUG("IDC_check_hash start");
+	XDEBUG("IDC_check_hash start")
 	rc = IDC_check_hash(idc, image);
 	if (rc)
 		goto out;
-	XDEBUG("IDC_check_hash end");
+	XDEBUG("IDC_check_hash end")
 
 	flags = PKCS7_BINARY;
 	if (!verify)
