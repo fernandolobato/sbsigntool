@@ -314,21 +314,21 @@ int main(int argc, char **argv)
 	}
 	BIO_METHOD *s_mem = BIO_s_mem();
 	
-	printf("BIO_new start\n")
+	printf("BIO_new start\n");
 	idcbio = BIO_new(s_mem);
-	printf("BIO_new end\n")
+	printf("BIO_new end\n");
 
-	printf("IDC_get start\n")
+	printf("IDC_get start\n");
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
 		goto out;
-	printf("IDC_get end\n")
+	printf("IDC_get end\n");
 
-	printf("IDC_check_hash start\n")
+	printf("IDC_check_hash start\n");
 	rc = IDC_check_hash(idc, image);
 	if (rc)
 		goto out;
-	printf("IDC_check_hash end\n")
+	printf("IDC_check_hash end\n");
 
 	flags = PKCS7_BINARY;
 	if (!verify)
