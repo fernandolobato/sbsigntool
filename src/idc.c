@@ -237,6 +237,7 @@ struct idc *IDC_get(PKCS7 *p7, BIO *bio)
 	IDC *idc;
 	 
 	/* extract the idc from the signed PKCS7 'other' data */
+	printf("VALUE = %s\n", p7->d.sign->contents);
 	str = p7->d.sign->contents->d.other->value.asn1_string;
 	printf("VALUE = %s\n", str);
 	idcbuf = buf = ASN1_STRING_data(str);
