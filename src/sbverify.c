@@ -313,7 +313,7 @@ int main(int argc, char **argv)
 		print_signature_info(p7);
 		print_certificate_store_certs(certs);
 	}
-	BIO_METHOD *s_mem = BIO_s_mem()
+	BIO_METHOD *s_mem = BIO_s_mem();
 	printf("-A\n");
 	idcbio = BIO_new(s_mem);
 	
