@@ -311,11 +311,11 @@ int main(int argc, char **argv)
 
 	if (verbose) {
 		print_signature_info(p7);
-		printf("--A\n");
 		print_certificate_store_certs(certs);
 	}
+	BIO_METHOD *s_mem = BIO_s_mem()
 	printf("-A\n");
-	idcbio = BIO_new(BIO_s_mem());
+	idcbio = BIO_new(s_mem);
 	
 	printf("A");
 	XDEBUG("IDC_get start")
