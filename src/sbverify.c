@@ -310,6 +310,7 @@ int main(int argc, char **argv)
 
 	if (verbose) {
 		print_signature_info(p7);
+		printf("--A");
 		print_certificate_store_certs(certs);
 	}
 	printf("-A");
