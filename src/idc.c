@@ -237,15 +237,13 @@ struct idc *IDC_get(PKCS7 *p7, BIO *bio)
 	IDC *idc;
 	 
 	/* extract the idc from the signed PKCS7 'other' data */
-	printf("d.sign = %s\n", p7->d.sign);
-	printf("contents = %s\n", p7->d.sign->contents);
 	str = p7->d.sign->contents->d.other->value.asn1_string;
-	printf("str = %s\n", str);
+
 	idcbuf = buf = ASN1_STRING_data(str);
-	printf("idcbuf and buf\n");
+
 	idc = d2i_IDC(NULL, &buf, ASN1_STRING_length(str));
-	printf("Conversions\n");
-	/* If we were passed a BIO, write the idc data, minus type and length,
+ 	
+	 /* If we were passed a BIO, write the idc data, minus type and length,
 	 * to the BIO. This can be used to PKCS7_verify the idc */
 	if (bio) {
 		uint32_t idclen;
@@ -265,10 +263,10 @@ struct idc *IDC_get(PKCS7 *p7, BIO *bio)
 					"IndirectDataContext?\n");
 			return NULL;
 		}
-		printf("Got it!\n");
+		
 		BIO_write(bio, idcbuf, idclen);
 	}
-
+	printf("%p\n", idc);
 	return idc;
 }
 
