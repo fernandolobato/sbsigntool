@@ -369,7 +369,7 @@ static int image_find_regions(struct image *image)
 	regions[2].name = "datadir[CERT]->headers";
 	bytes += regions[2].size;
 	
-	printf("Number of sections: %d", image->sections);
+	printf("Number of sections: %d\n", image->sections);
 	/* add COFF sections */
 	for (i = 0; i < image->sections; i++) {
 		uint32_t file_offset, file_size;
