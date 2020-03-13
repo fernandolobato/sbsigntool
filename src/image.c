@@ -528,7 +528,7 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		if (!rc)
 			return -1;
 
-		printf("Region %i size%d\n", region->size);
+		printf("Region %i size: %d\n",i,  region->size);
 	}
 
 	rc = SHA256_Final(digest, &ctx);
