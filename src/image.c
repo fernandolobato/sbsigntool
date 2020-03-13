@@ -518,7 +518,7 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		return -1;
 
 	n = 0;
-	printf("Image Checksum Regions%d\n", image->n_checksum_regions)
+	printf("Image Checksum Regions%d\n", image->n_checksum_regions);
 	
 	for (i = 0; i < image->n_checksum_regions; i++) {
 		region = &image->checksum_regions[i];
@@ -528,7 +528,7 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		if (!rc)
 			return -1;
 
-		printf("Region %i size%d\n", region->size)
+		printf("Region %i size%d\n", region->size);
 	}
 
 	rc = SHA256_Final(digest, &ctx);
