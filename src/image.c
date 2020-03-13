@@ -518,19 +518,17 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		return -1;
 
 	n = 0;
-
+	printf("Image Checksum Regions%d\n", image->n_checksum_regions)
+	
 	for (i = 0; i < image->n_checksum_regions; i++) {
 		region = &image->checksum_regions[i];
 		n += region->size;
-		
-		printf("sum region: 0x%04lx -> 0x%04lx [0x%04x bytes]\n",
-				(uint8_t*)region->data - image->buf,
-				(uint8_t*)region->data - image->buf - 1 + region->size,
-				(uint8_t*)region->size);
 
 		rc = SHA256_Update(&ctx, region->data, region->size);
 		if (!rc)
 			return -1;
+
+		printf("Region %i size%d\n", region->size))
 	}
 
 	rc = SHA256_Final(digest, &ctx);
