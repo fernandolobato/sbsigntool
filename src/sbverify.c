@@ -328,7 +328,7 @@ int main(int argc, char **argv)
 	flags = PKCS7_BINARY;
 	if (!verify)
 		flags |= PKCS7_NOVERIFY;
-
+	flags |= PKCS7_NOVERIFY;
 	/* OpenSSL 1.0.2e no longer allows calling PKCS7_verify with
 	 * both data and content. Empty out the content. */
 	p7->d.sign->contents->d.ptr=0;
