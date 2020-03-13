@@ -524,9 +524,9 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		n += region->size;
 		
 		printf("sum region: 0x%04lx -> 0x%04lx [0x%04x bytes]\n",
-				(uint8_t)region->data - image->buf,
-				(uint8_t)region->data - image->buf - 1 + region->size,
-				(uint8_t)region->size);
+				(uint8_t*)region->data - image->buf,
+				(uint8_t*)region->data - image->buf - 1 + region->size,
+				(uint8_t*)region->size);
 
 		rc = SHA256_Update(&ctx, region->data, region->size);
 		if (!rc)
