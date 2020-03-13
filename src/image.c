@@ -522,7 +522,7 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 	for (i = 0; i < image->n_checksum_regions; i++) {
 		region = &image->checksum_regions[i];
 		n += region->size;
-#if 0
+#if 1
 		printf("sum region: 0x%04lx -> 0x%04lx [0x%04x bytes]\n",
 				region->data - image->buf,
 				region->data - image->buf - 1 + region->size,

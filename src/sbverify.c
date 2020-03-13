@@ -315,11 +315,9 @@ int main(int argc, char **argv)
 
 	idcbio = BIO_new(BIO_s_mem());
 
-	printf("IDC_get start\n");
 	idc = IDC_get(p7, idcbio);
 	if (!idc)
 		goto out;
-	printf("IDC_get end\n");
 
 	printf("IDC_check_hash start\n");
 	rc = IDC_check_hash(idc, image);
