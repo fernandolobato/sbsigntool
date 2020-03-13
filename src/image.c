@@ -368,7 +368,8 @@ static int image_find_regions(struct image *image)
 				buf + image->header_size);
 	regions[2].name = "datadir[CERT]->headers";
 	bytes += regions[2].size;
-
+	
+	printf("Number of sections: %d", image->sections);
 	/* add COFF sections */
 	for (i = 0; i < image->sections; i++) {
 		uint32_t file_offset, file_size;
@@ -518,7 +519,7 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		return -1;
 
 	n = 0;
-	printf("Image Checksum Regions%d\n", image->n_checksum_regions);
+	printf("Image Checksum Regions: %d\n", image->n_checksum_regions);
 	
 	for (i = 0; i < image->n_checksum_regions; i++) {
 		region = &image->checksum_regions[i];
@@ -528,7 +529,8 @@ int image_hash_sha256(struct image *image, uint8_t digest[])
 		if (!rc)
 			return -1;
 
-		printf("Region %i size: %d\n",i,  region->size);
+		printf("Region %s, %i size: %d\n",region->name, i, region->size);
+	
 	}
 
 	rc = SHA256_Final(digest, &ctx);
